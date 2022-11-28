@@ -1,0 +1,55 @@
+<div id="content-wrapper">
+  <div class="container-fluid">
+      <!-- Breadcrumbs-->
+      <ol class="breadcrumb block-title">
+        <li class="breadcrumb-item">
+          <a href="#" class="title-page">Danh sách đơn hàng đã hủy</a>
+        </li>
+      </ol>
+
+      <!-- DataTables -->
+      <div class="card mb-3">
+          <div class="card-header">
+              <i class="fas fa-table"></i>
+              Danh sách đơn hàng đã hủy
+          </div>
+        <div class="card-body">
+          <div class="table-responsive">
+            <table class="table table-bordered" id="dataTableDate" width="100%" cellspacing="0">
+              <thead "title-table">
+                <tr>
+                    <th>Email người đặt hàng</th>
+                    <th>Người nhận hàng</th>
+                    <th>Số điện thoại người nhận hàng</th>
+                    <th>Địa chỉ giao hàng</th>
+                    <th>Ngày đặt hàng</th>
+                    <th>Ngày hủy đơn</th>
+                    <th>Danh sách hàng hóa</th>
+                    <th>Danh sách đơn hàng chưa xác nhận</th>
+                    
+                </tr>
+              </thead>
+              <tbody class="body-table">
+                {{#if data}}
+                {{#each data}}
+                <tr>
+                    <th scope="row">{{this.email}}</th>
+                    <td>{{this.nguoiNhan}}</td>
+                    <td>{{this.sdtNguoiNhan}}</td>
+                    <td>{{this.diaChiNhan}}</td>
+                    <td>{{this.time}}</td>
+                    <td>{{this.date_delete}}</td>
+                    <td><button type="button"><a href="/order/delivered/detail/{{this._id}}" class="button-a">Xem sản phẩm</a></button></td>
+                    <td><button type="button"><a href="/order/delivery" class="button-a">Đơn hàng chưa xác nhận</a></button></td>
+            
+                </tr>
+                {{/each}}
+                {{/if}}
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

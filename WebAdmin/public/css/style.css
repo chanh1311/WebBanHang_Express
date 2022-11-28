@@ -1,0 +1,43 @@
+p{
+    font-size: 120%;
+}
+b{
+    color: rgb(23, 33, 171);
+}
+strong{
+    color: rgb(109, 104, 173);
+}
+.title-page{
+    color: rgb(2, 2, 137);
+    font-size: 200%;
+    background-color: rgb(227, 232, 237);
+    font-family: Arial, Helvetica, sans-serif;
+}
+.block-title{
+    display: grid;
+    text-align: center;
+}
+.title-table{
+    background-color: rgb(212, 208, 208);
+}
+.body-table{
+    background-color: rgb(228, 233, 236);
+}
+.button-huy{
+  font-size: 110%;
+  color:orangered;
+}
+.button-a{
+    font-size: 110%;
+    color:rgb(2, 2, 91)
+  }
+.button-xn{
+    font-size: 110%;
+    color:rgb(2, 173, 99)
+  }
+.singup{
+    background-color: rgb(248, 242, 242);
+}
+#message{
+    color:red
+}

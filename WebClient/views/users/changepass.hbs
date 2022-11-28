@@ -1,0 +1,40 @@
+<div class="section change-pass">
+    <!-- container -->
+    <div class="container">
+        <!-- row -->
+        <div class="row">
+
+            <div class="col-md-7">
+                <!-- Billing Details -->
+                <div class="billing-details">
+                    <div class="section-title">
+                        <h3 class="title" style="text-align: center;">Đổi Mật Khẩu</h3>
+                    </div>
+                    <form method="post">
+                        <div class="form-group">
+                            <input class="input" type="email" name="email" id="email" placeholder="Email">
+                        </div>
+                        <div class="form-group">
+                            <input class="input" type="password" name="password" id="password" placeholder="Password">
+                        </div>
+                        <div class="form-group">
+                            <input class="input" type="password" name="newpassword" id="newpassword" placeholder="New-Password">
+                        </div>
+                        <div class="form-group">
+                            <input class="input" type="password" name="repassword" id="repassword" placeholder="Re-NewPassword">
+                        </div>
+                        <div class="form-group">
+                            <input class="primary-btn order-submit" type="submit" value="Đổi Mật Khẩu" />
+                        </div>
+                    </form>
+                </div>
+                
+                <h5 class="error">{{message}}</h5></br>
+                {{!-- <a href="#">Quên mật khẩu</a> --}}
+                <!-- /Billing Details -->
+            </div>
+            <!-- /row -->
+        </div>
+        <!-- /container -->
+    </div>
+</div>

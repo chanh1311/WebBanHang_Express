@@ -1,0 +1,103 @@
+<div class="container mt-4">
+    <div class="row">
+        <ul id="nav-orders" class="nav nav-pills justify-content-end nav-orders">
+            <li class="nav-item">
+                <a class="nav-link" href="/cart/orders?value=0" class="menu-orders"><img class="icon" src="/images/all.png"><h5 class="title-orders">Tất cả đơn</h5></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/cart/orders?value=1" class="menu-orders"><img class="icon" src="/images/chuaxacnhan.png"><h5 class="title-orders">Chưa xác nhận</h5></a>  
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/cart/orders?value=2" class="menu-orders"><img class="icon" src="/images/daxacnhan.png"><h5 class="title-orders">Đã xác nhận</h5></a>
+                
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/cart/orders?value=3" class="menu-orders"><img class="icon" src="/images/giaohang.png"><h5 class="title-orders">Đã giao hàng</h5></a>
+                
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/cart/orders?value=4" class="menu-orders"><img class="icon" src="/images/cancel-orders.png"><h5 class="title-orders">Đã hủy</h5></a>
+            </li>
+        </ul>
+    </div>
+</div>
+
+<div class="container bootdey body-orders">
+    <div class="panel panel-default panel-order heading-bg">
+        <div class="panel-heading ">
+            <strong style="text-align: center;">Lịch sử đơn hàng</strong>
+            <div class="btn-group pull-right">
+                <div class="btn-group">
+                    <button type="button" class="btn btn-default btn-xs dropdown-toggle" data-toggle="dropdown">Filter history <i class="fa fa-filter"></i></button>
+                    <ul class="dropdown-menu dropdown-menu-right">
+                        <li><a href="#">Approved orders</a></li>
+                        <li><a href="#">Pending orders</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="panel-body">
+            {{#if data}}
+            {{#each data}}
+                <div class="row">
+                        <div class="col-md-1">
+                            {{#each this.listProduct}}
+                            <img src="{{this.hinhAnh}}" class="media-object img-thumbnail" />
+                            {{/each}}
+                        </div>
+                    
+                            <div class="col-md-11">
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        {{#if this.huy}}
+                                            <div class="pull-right"><label class="label label-danger">Đã hủy</label></div>
+                                        {{else}}
+                                            {{#if this.giaoHang}}
+                                                <div class="pull-right"><label class="label label-success">Giao hàng thàng công</label></div>
+                                            {{else}}
+                                                {{#if this.trangThai}}
+                                                    <div class="pull-right"><label class="label label-primary">Đã xác nhận(Đang chờ giao)</label></div>
+                                                {{else}}
+                                                    <div class="pull-right"><label class="label label-default">Đặt hàng thành công</label></div>
+                                                    {{!-- <div class="add-to-cart">
+                                                        <a data-placement="top" class="btn btn-danger btn-xs glyphicon glyphicon-remove" href="/cart/deleteOrders/{{this._id}}" title="View">Hủy</a>
+                                                    </div><br> --}}
+                                                {{/if}}
+                                            {{/if}}
+                                        {{/if}}
+
+                                        <span><strong style="color: red;">Đơn hàng số:</strong></span> <span class="label label-info">{{this._id}}</span><br />
+                                        <b>Số sản phẩm : </b>{{this.soLuongSanPham}} <br> <b>Số điện thoại: </b>{{this.sdtNguoiNhan}} <br> <b>Địa chỉ nhận: </b>{{this.diaChiNhan}} <br />
+                                        <b>Tổng tiền : </b><strong style="color: brown;">{{this.tongTienVnd}}</strong><br>
+                                        <a data-placement="top" class="btn btn-success btn-xs glyphicon glyphicon-ok" href="/cart/orders/{{this._id}}" title="View">Xem</a>
+                                        
+                                
+                                    </div>
+                                    <div class="col-md-12">order made on: {{this.time}} by <a href="#">{{this.nguoiNhan}} </a></div>
+                                </div>
+                            </div>
+                        </div>
+                    
+            {{/each}}
+            {{/if}}
+        </div>
+        
+    </div>
+</div>
+
+{{!-- <p>Click me away!</p> --}}
+
+<script>
+    $(document).ready(function(){
+            $("p").click(function(){
+            $(this).hide();
+        });
+        });
+</script>
+ 
+   
+
+
+
+

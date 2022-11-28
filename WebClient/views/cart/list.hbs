@@ -1,0 +1,76 @@
+<!-- BREADCRUMB -->
+<div id="breadcrumb" class="section">
+    <!-- container -->
+    <div class="container">
+        <!-- row -->
+        <div class="row">
+            <div class="col-md-12">
+                <ul class="breadcrumb-tree">
+                    <li><a href="/">Trang chủ</a></li>
+                    <li><a href="#">Giỏ hàng của tôi</a></li>
+                </ul>
+            </div>
+        </div>
+        <!-- /row -->
+    </div>
+    <!-- /container -->
+</div>
+<!-- /BREADCRUMB -->
+
+<!-- SECTION -->
+<div class="section">
+    <!-- container -->
+    <div class="container">
+        <!-- row -->
+        <div class="row">
+            
+
+            <!-- STORE -->
+            <div id="store" class="col-md-12">
+
+                <!-- store products -->
+                <div class="row">
+                    {{#if data}}
+                    {{#each data}}
+                        <!-- product -->
+                        <div class="col-md-3 col-xs-6">
+                            <div class="product">
+                                <div class="product-img">
+                                    <img src="{{this.hinhAnh}}" alt="">
+                                </div>
+                                <div class="product-body">
+                                    <p class="product-category">{{this.loai}}</p>
+                                    <h3 class="product-name"><a href="/product/info/{{this._id}}">{{this.ten}}</a></h3>
+                                    <h4 class="product-price">{{this.giaVnd}}</h4>
+                                    <div class="product-rating">
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                    </div>
+                                </div>
+                                <div class="add-to-cart">
+                                    <a href="/cart/delete/{{this._id}}"><button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i>Xóa khỏi giỏ hàng</button></a>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- /product -->
+                        <div class="clearfix visible-md visible-sm visible-xs"></div>
+                    {{/each}}
+                    {{/if}}
+                </div>
+                <!-- /store products -->
+                
+                <div class="add-to-cart">
+                    <a href="/cart/checkout" class="primary-btn order-submit">Đặt hàng ngay</a>
+                </div>
+
+            </div>
+            <!-- /STORE -->
+        </div>
+        <!-- /row -->
+    </div>
+    <!-- /container -->
+</div>
+<!-- /SECTION -->

@@ -1,0 +1,111 @@
+<!-- BREADCRUMB -->
+<div id="breadcrumb" class="section">
+    <!-- container -->
+    <div class="container">
+        <!-- row -->
+        <div class="row">
+            <div class="col-md-12">
+                <ul class="breadcrumb-tree">
+                    <li><a href="/">Trang chủ</a></li>
+                    <li><a href="#">{{title}}</a></li>
+                </ul>
+            </div>
+        </div>
+        <!-- /row -->
+    </div>
+    <!-- /container -->
+</div>
+<!-- /BREADCRUMB -->
+
+<!-- SECTION -->
+<div class="section product-bg">
+    <!-- container -->
+    <div class="container">
+        <!-- row -->
+        <div class="row">
+
+
+            <!-- STORE -->
+            <div id="store" class="col-md-12">
+                <!-- store top filter -->
+                <div class="store-filter clearfix">
+                    <div class="store-sort">
+                        <form method="POST" action="">
+                            <select class="input-select" id="sort" name="sort">
+                                <option value="0">Sắp xếp theo</option>
+                                <option value="1">Mới nhất</option>
+                                <option value="2">Giá tăng dần</option>
+                                <option value="3">Giá giảm dần</option>
+                            </select>
+                            <input type="submit" class="search-btn" value="Tìm"></input>
+                            
+                        </form>     
+                        
+                    </div> 
+                </div>
+                <!-- /store top filter -->
+
+                <!-- store products -->
+                <div class="container-fluid">
+                    <div class="row">
+                        {{#if data}}
+                        {{#each data}}
+                        <!-- product -->
+                        <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+                            <div class="product">
+                                <div class="product-img">
+                                    <a href="/product/info/{{this._id}}"><img src="{{this.hinhAnh}}" alt="" style="width: 100%; height: 100%;"></a>
+                                    {{!-- <img src="{{this.hinhAnh}}" alt="" > --}}
+                                </div>
+                                <div class="product-body">
+                                    <a href="/product/info/{{this._id}}"><p class="product-category">{{this.loai}}</p></a>
+                                    <h3 class="product-name"><a href="/product/info/{{this._id}}">{{this.ten}}</a></h3>
+                                    <a href="/product/info/{{this._id}}"><h4 class="product-price">{{this.giaVnd}}</h4></a>
+                                    <div class="product-rating">
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                    </div>
+                                </div>
+                                <div class="add-to-cart">
+                                    <a href="/cart/add/{{this._id}}"><button class="add-to-cart-btn"><i
+                                                class="fa fa-shopping-cart"></i>Thêm
+                                            vào giỏ hàng</button></a>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- /product -->
+                        {{!-- <div class="clearfix visible-md visible-sm visible-xs"></div> --}}
+                        {{/each}}
+                        {{/if}}
+                    </div>
+                </div>
+
+                <!-- /store products -->
+
+                <!-- store bottom filter -->
+                <div class="store-filter clearfix">
+                    <ul class="store-pagination">
+                        <p>Trang {{index}}</p>
+                        {{#if data1}}
+                        {{#each data1}}
+                        {{#if this.cate}}
+                        <li><a href="/product/{{this.cate}}?Page={{this.NumOfPage}}&sort={{this.value}}">{{this.NumOfPage}}</a></li>
+                        {{else}}
+                        <li><a href="/product/search/All?Page={{this.NumOfPage}}&select={{this.select}}&key={{this.key}}&sort={{this.sort}}">{{this.NumOfPage}}</a></li>
+                        {{/if}}
+                        {{/each}}
+                        {{/if}}
+                    </ul>
+                </div>
+                <!-- /store bottom filter -->
+            </div>
+            <!-- /STORE -->
+        </div>
+        <!-- /row -->
+    </div>
+    <!-- /container -->
+</div>
+<!-- /SECTION -->

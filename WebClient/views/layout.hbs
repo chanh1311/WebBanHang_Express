@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+
+    <title>Thế giới công nghệ Phúc Lộc</title>
+
+    <!-- Google font -->
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,500,700" rel="stylesheet">
+
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    {{!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous"> --}}
+    <!-- Slick -->
+    <link type="text/css" rel="stylesheet" href="../../stylesheets/css/slick.css" />
+    <link type="text/css" rel="stylesheet" href="../../stylesheets/css/slick-theme.css" />
+
+    <!-- nouislider -->
+    <link type="text/css" rel="stylesheet" href="../../stylesheets/css/nouislider.min.css" />
+
+    <!-- Font Awesome Icon -->
+    <link rel="stylesheet" href="../../stylesheets/css/font-awesome.min.css">
+
+    <!-- Custom stlylesheet -->
+    <link type="text/css" rel="stylesheet" href="../../stylesheets/css/style.css" />
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+
+<body>
+    <!-- HEADER -->
+    <header>
+        <!-- TOP HEADER -->
+        <div id="top-header">
+            <div class="container">
+                <ul class="header-links pull-left">
+                    <li><a href="#"><i class="fa fa-phone"></i> +84 111 222 333</a></li>
+                    <li><a href="#"><i class="fa fa-envelope-o"></i> chanhn1229@gmail.com</a></li>
+                    <li><a href="#"><i class="fa fa-map-marker"></i> Nguyễn Văn Linh, phường Hưng Lợi, Quận Ninh Kiều,
+                            TP Cần Thơ</a>
+                    </li>
+                </ul>
+                <ul class="header-links pull-right">
+                    {{#if user}}
+                    <div class="dropdown">
+                        <div class="dropdown-toggle text-danger" data-toggle="dropdown">
+                            <li><a href="#"><i class="fa fa-user-o"></i>{{user.email}}</a></li>
+                        </div>
+                        <div class="dropdown-menu">
+                            <a class="dropdown-item" href="/cart/list_update">Giỏ hàng của tôi</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="/cart/checkout">Thanh toán</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="/cart/orders">Đơn hàng của tôi</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="/users/info">Chi tiết tài khoản</a>
+                             <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="/users/changepass">Đổi mật khẩu</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="/users/logout">Đăng xuất</a>
+                        </div>
+                    </div>
+                    
+                    
+                    
+                    {{else}}
+                    <div class="dropdown ">
+                        <div class="dropdown-toggle text-danger" data-toggle="dropdown">
+                            <li><a href="#"><i class="fa fa-user-o"></i>Tài khoản của tôi</a></li>
+                        </div>
+                        
+                        <div class="dropdown-menu">
+                            <a class="dropdown-item" href="/users/login">Đăng nhập</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="/users/signUp">Đăng ký tài khoản</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="/users/changepass">Đổi mật khẩu</a>
+                            
+                        </div>
+                    </div>
+                    
+                    {{/if}}
+
+                </ul>
+
+                <ul class="icon-cart">
+                    <a href="/cart/list_update"><i class="fa fa-shopping-cart" style="color: orangered;"></i></a>
+                </ul>
+                
+            </div>
+        </div>
+        <!-- /TOP HEADER -->
+
+        <!-- MAIN HEADER -->
+        <div id="header">
+            <!-- container -->
+            <div class="container">
+                <!-- row -->
+                <div class="row">
+                    <!-- LOGO -->
+                    <div class="col-md-2">
+                        <h1 id="styleH1">Phúc Lộc</h1>
+                    </div>
+                    <!-- /LOGO -->
+
+                    <!-- SEARCH BAR -->
+                    <div class="col-md-7">
+                        <div class="header-search">
+                            <form method="GET" action="/product/search/All">
+                                <select name="select" class="input-select">
+                                    <option value="0">Tất cả</option>
+                                    <option value="1">Theo tên</option>
+                                    <option value="2">Theo loại</option>
+                                    <option value="3">Theo màn hình</option>
+                                    <option value="4">Theo rom</option>
+                                    <option value="5">Theo giá</option>
+                                </select>
+                                <input type="text" class="input" name="key" placeholder="Nhập từ khóa tìm kiếm">
+                                <input type="submit" class="search-btn" value="Tìm kiếm" placeholder="Tìm kiếm"></input>
+                            </form>
+                        </div>
+                    </div>
+                    <!-- /SEARCH BAR -->
+                </div>
+                <!-- row -->
+            </div>
+            <!-- container -->
+        </div>
+        <!-- /MAIN HEADER -->
+    </header>
+    <!-- /HEADER -->
+
+    <!-- NAVIGATION -->
+    <nav id="navigation">
+        <!-- container -->
+        <div class="container">
+            <!-- responsive-nav -->
+            <div id="responsive-nav">
+                <!-- NAV -->
+                <ul class="main-nav nav navbar-nav">
+                    <li><a href="/">Trang chủ</a></li>
+                    <li><a href="/product/All?Page=1">Cửa hàng</a></li>
+                    <li><a href="/product/Apple?Page=1">Apple</a></li>
+                    <li><a href="/product/Samsung?Page=1">Samsung</a></li>
+                    <li><a href="/product/Oppo?Page=1">Oppo</a></li>
+                    <li><a href="/product/Xiaomi?Page=1">Xiaomi</a></li>
+                </ul>
+                <!-- /NAV -->
+            </div>
+            <!-- /responsive-nav -->
+        </div>
+        <!-- /container -->
+    </nav>
+    <!-- /NAVIGATION -->
+
+    {{{body}}}
+
+
+
+    <!-- FOOTER -->
+    <footer id="footer">
+        <!-- top footer -->
+        <div class="section">
+            <!-- container -->
+            <div class="container">
+                <!-- row -->
+                <div class="row">
+                    <div class="col-md-3 col-xs-6">
+                        <div class="footer">
+                            <h3 class="footer-title">About Us</h3>
+                            <p>Chuyên cung cấp các loại Smatphone</p>
+                            <ul class="footer-links">
+                                <li><a href="#"><i class="fa fa-map-marker"></i>
+                                        Nguyễn Văn Linh, Phường Hưng Lợi, Quận Ninh Kiều, TP Cần Thơ</a></li>
+                                <li><a href="tel:8411122233"><i class="fa fa-phone"></i>+84 111 222 333</a></li>
+                                <li><a href="mailto:chanhn1229@gmail.com"><i class="fa fa-envelope-o"></i>chanhn1229@gmail.com</a></li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="col-md-3 col-xs-6">
+                        <div class="footer">
+                            <h3 class="footer-title">Categories</h3>
+                            <ul class="footer-links">
+                                <li><a href="https://en.wikipedia.org/wiki/IPhone">Iphone</a></li>
+                                <li><a href="https://en.wikipedia.org/wiki/Samsung">Samsung</a></li>
+                                <li><a href="https://en.wikipedia.org/wiki/Oppo">Oppo</a></li>
+                                <li><a href="https://en.wikipedia.org/wiki/Xiaomi">Xiaomi</a></li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="clearfix visible-xs"></div>
+
+                    <div class="col-md-3 col-xs-6">
+                        <div class="footer">
+                            <h3 class="footer-title">Information</h3>
+                            <ul class="footer-links">
+                                <li><a href="instabio.cc/3070514jqoLL0">About Us</a></li>
+                                <li><a href="webprofilechanh.000webhostapp.com">Contact Us</a></li>
+                                <li><a href="https://en.wikipedia.org/wiki/Privacy_policy">Privacy Policy</a></li>
+                                <li><a href="#">Orders and Returns</a></li>
+                                <li><a href="#">Terms & Conditions</a></li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="col-md-3 col-xs-6">
+                        <div class="footer">
+                            <h3 class="footer-title">Service</h3>
+                            <ul class="footer-links">
+                                <li><a href="http://localhost:3003/users/info">My Account</a></li>
+                                <li><a href="http://localhost:3003/cart/list">View Cart</a></li>
+                                <li><a href="http://localhost:3003/cart/orders">Track My Order</a></li>
+                                <li><a href="instabio.cc/3070514jqoLL0">Help</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <!-- /row -->
+            </div>
+            <!-- /container -->
+        </div>
+        <!-- /top footer -->
+
+        <!-- bottom footer -->
+        <div id="bottom-footer" class="section">
+            <div class="container">
+                <!-- row -->
+                <div class="row">
+                    <div class="col-md-12 text-center">
+                        <ul class="footer-payments">
+                            <li><a href="#"><i class="fa fa-cc-visa"></i></a></li>
+                            <li><a href="#"><i class="fa fa-credit-card"></i></a></li>
+                            <li><a href="#"><i class="fa fa-cc-paypal"></i></a></li>
+                            <li><a href="#"><i class="fa fa-cc-mastercard"></i></a></li>
+                            <li><a href="#"><i class="fa fa-cc-discover"></i></a></li>
+                            <li><a href="#"><i class="fa fa-cc-amex"></i></a></li>
+                        </ul>
+                        <span class="copyright">
+                            <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                            Copyright &copy;
+                            <script>document.write(new Date().getFullYear());</script> All rights reserved
+                            <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                        </span>
+                    </div>
+                </div>
+                <!-- /row -->
+            </div>
+            <!-- /container -->
+        </div>
+        <!-- /bottom footer -->
+    </footer>
+    <!-- /FOOTER -->
+
+    <!-- jQuery Plugins -->
+    
+    <script src="../../javascripts/jquery.min.js"></script>
+    {{!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script> --}}
+    <script src="../../javascripts/bootstrap.min.js"></script>
+    <script src="../../javascripts/slick.min.js"></script>
+    <script src="../../javascripts/nouislider.min.js"></script>
+    <script src="../../javascripts/jquery.zoom.min.js"></script>
+    
+    <script src="../../javascripts/main.js"></script>
+    <script src="../../javascripts/code.js"></script>
+    {{{block "scripts"}}}
+
+</body>
+
+</html>

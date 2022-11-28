@@ -1,0 +1,55 @@
+<!-- BREADCRUMB -->
+<div id="breadcrumb" class="section">
+    <!-- container -->
+    <div class="container">
+        <!-- row -->
+        <div class="row">
+            <div class="col-md-12">
+                <ul class="breadcrumb-tree">
+                    <li><a href="/">Trang chủ</a></li>
+                    <li><a href="#">Thông tin tài khoản</a></li>
+                </ul>
+            </div>
+        </div>
+        <!-- /row -->
+    </div>
+    <!-- /container -->
+</div>
+<!-- /BREADCRUMB -->
+
+<!-- SECTION -->
+<div class="section">
+    <!-- container -->
+    <div class="container">
+        <!-- row -->
+        <div class="row">
+            <div class="col-md-5">
+                <div id="product-main-img">
+                    <div class="product-preview">
+                        <img src="{{user.imageUrl}}" alt="" onError="this.onerror=null;this.src='/images/{{user.imageUrl}}';">
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-7">
+                <div class="product-details">
+                    <h2>Email: <strong class="info">{{user.email}}</strong></h2>
+                    <h2>Tên: <strong class="info">{{user.ten}}</strong></h2>
+                    <h2>Địa chỉ: <strong class="info">{{user.diaChi}}</strong></p></h2>
+                    <h2>Số điện thoại: <strong class="info">{{user.sdt}}</strong></h2>
+                    
+                    <br><br><br>
+                    <div class="add-to-cart">
+                        <a href="/users/edit"><button class="add-to-cart-btn"><i></i>Chỉnh sửa thông tin</button></a>
+                    </div>
+                    {{!-- <div class="add-to-cart">
+                        <a href="/users/changepass"><button class="add-to-cart-btn"><i></i>Đổi Mật Khẩu</button></a>
+                    </div> --}}
+                </div>
+            </div>
+        </div>
+        <!-- /row -->
+    </div>
+    <!-- /container -->
+</div>
+<!-- /SECTION --> 

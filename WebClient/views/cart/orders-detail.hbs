@@ -1,0 +1,92 @@
+<!-- BREADCRUMB -->
+<div id="breadcrumb">
+    <!-- container -->
+    <div class="container">
+        <!-- row -->
+        <div class="row">
+            <div class="col-md-12">
+                <ul class="breadcrumb-tree">
+                    <li><a href="/">Trang chủ</a></li>
+                    <li><a href="#">Đơn hàng của tôi</a></li>
+                </ul>
+            </div>
+        </div>
+        <!-- /row -->
+    </div>
+    <!-- /container -->
+</div>
+<!-- /BREADCRUMB -->
+
+<!-- SECTION -->
+<div class="section content-orders">
+    <!-- container -->
+    <div class="container">
+        <!-- row -->
+        <h1 style="font-weight: 800;">Chi tiết đơn hàng</h1>
+        <br>
+        <div class="row orders-detail">
+            {{#if data}}
+                <h3 style="color: red;">Đơn hàng số: {{data._id}}</h3>
+                <p>Ngày đặt hàng: <strong class="info">{{data.time}}</strong></p>
+                <p>Người nhận: <strong class="info">{{data.nguoiNhan}}</strong></p>
+                <p>Email: <strong class="info">{{data.email}}</strong></p>
+                <p>Số điện thoại người nhận: <strong class="info">{{data.sdtNguoiNhan}}</strong></p>
+                <p>Địa chỉ nhận: <strong class="info">{{data.diaChiNhan}}</strong></p>
+                <p>Tổng tiền: <strong class="info">{{data.tongTienVnd}}</strong></p> 
+                <br>
+                <!-- STORE -->
+                <div id="store" class="col-md-12">
+                    <!-- store products -->
+                    <div class="row">
+                        {{#each data.listProduct}}
+                           
+                            <!-- product -->
+                            <div class="col-md-3 col-xs-6">
+                                <div class="product">
+                                    <div class="product-img">
+                                        <img src="{{this.hinhAnh}}" alt="">
+                                    </div>
+                                    <div class="product-body">
+                                        <p class="product-category">{{this.loai}}</p>
+                                        <h3 class="product-name"><a href="/product/info/{{this._id}}">{{this.ten}}</a></h3>
+                                        <h4 class="product-price">{{this.giaVnd}}</h4>
+                                        <h4 class="product-name">Số lượng mua: {{this.soLuongMua}}</h4>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- /product -->
+                            <div class="clearfix visible-md visible-sm visible-xs"></div>
+                        {{/each}}
+                    </div>
+                    <!-- /store products -->
+                </div>
+                <!-- /STORE -->
+                {{#if data.huy}}
+                     <h4>Trạng thái: <strong class="ThanhCong" class="TrangThai">Đơn hàng đã được hủy</strong></h4>
+                {{else}}
+                    {{#if data.giaoHang}}
+                        <h4>Trạng thái: <strong class="ThanhCong" class="TrangThai">Giao hàng thàng công</strong></h4>
+                    {{else}}
+                        {{#if data.trangThai}}
+                            <h4>Trạng thái: <strong class="TrangThai">Đã xác nhận (Đang chờ giao)</strong></h4>
+                        {{else}}
+                            <h4>Trạng thái: <strong>Đặt hàng thành công</strong></h4><br>
+                            <div class="add-to-cart">
+                                <a href="/cart/deleteOrders/{{data._id}}" class="primary-btn order-submit">Hủy bỏ đơn hàng</a>
+                                <a href="/cart/editAddress/{{data._id}}" class="primary-btn order-submit">Thay đổi địa chỉ nhận hàng</a>
+                            </div><br>
+                        {{/if}}
+                    {{/if}}
+                {{/if}}
+                
+                
+                
+                <hr>
+           
+            {{/if}}
+        </div>
+        <!-- /row -->
+    </div>
+    <!-- /container -->
+</div>
+<!-- /SECTION -->

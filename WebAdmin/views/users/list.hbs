@@ -1,0 +1,51 @@
+<div id="content-wrapper">
+  <div class="container-fluid">
+      <!-- Breadcrumbs-->
+      <ol class="breadcrumb block-title">
+        <li class="breadcrumb-item">
+          <a href="#" class="title-page">Danh sách người dùng</a>
+        </li>
+      </ol>
+
+      <!-- DataTables -->
+      <div class="card mb-3">
+          <div class="card-header">
+              <i class="fas fa-table"></i>
+              Danh sách người dùng
+          </div>
+        <div class="card-body">
+          <div class="table-responsive">
+            <table class="table table-bordered" id="dataTableDon" width="100%" cellspacing="0">
+              <thead class="title-table">
+                <tr>
+                    <th>Email</th>
+                    <th>Họ</th>
+                    <th>Tên</th>
+                    <th>Địa chỉ</th>
+                    <th>Thành phố</th>
+                    <th>Số điện thoại</th>
+                    <th>Số đơn mua</th>
+                </tr>
+              </thead>
+              <tbody class="body-table">
+                {{#if data}}
+                {{#each data}}
+                <tr>
+                    <th scope="row">{{this.email}}</th>
+                    <td>{{this.ho}}</td>
+                    <td>{{this.ten}}</td>
+                    <td>{{this.diaChi}}</td>
+                    <td>{{this.tp}}</td>
+                    <td>{{this.sdt}}</td>
+                    <td>{{this.soDonMua}}</td>
+                </tr>
+                {{/each}}
+                {{/if}}
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

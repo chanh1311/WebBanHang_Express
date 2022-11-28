@@ -1,0 +1,102 @@
+<div class="row cart-bg">
+  <div class="container px-3 my-5 clearfix cart-section">
+    <!-- Shopping cart table -->
+    <div class="card">
+        <div class="card-header">
+            <h2 style="text-align: center;">Giỏ hàng của tôi</h2>
+        </div>
+        <div class="card-body">
+            <div class="table-responsive">
+              <table class="table table-bordered m-0">
+                <thead>
+                  <tr>
+                    <!-- Set columns width -->
+                    <th class="text-center py-3 px-4" style="min-width: 400px;">Tên sản phẩm &amp; Chi tiết</th>
+                    <th class="text-right py-3 px-4" style="width: 100px;">Price</th>
+                    <th class="text-center py-3 px-4" style="width: 120px;">Số lượng</th>
+                    <th class="text-center py-3 px-4" style="width: 120px;">Còn lại</th>
+                    <th class="text-center align-middle py-3 px-0" style="width: 40px;"><a href="#" class="shop-tooltip float-none text-light" title="" data-original-title="Clear cart"><i class="ino ion-md-trash"></i></a></th>
+                  </tr>
+                </thead>
+                <tbody>
+                   {{#if data}}
+                    {{#each data}}
+                  <tr>
+                    <td class="p-4">
+                      <div class="media align-items-center">
+                        <a href="/product/info/{{this._id}}"><img src={{this.hinhAnh}} class="d-block ui-w-40 ui-bordered mr-4" alt=""></a>
+                        <div class="media-body">
+                          <a href="/product/info/{{this._id}}" class="d-block text-dark">{{this.ten}},</a>
+                          
+                            <span class="text-muted"><b>Loại: </b>{{this.loai}},</span>
+                            <span class="text-muted"><b>Cpu: </b>{{this.cpu}},</span>
+                            <span class="text-muted"><b>Ram: </b>{{this.ram}} </span>
+                          
+                        </div>
+                      </div>
+                    </td>
+                    <td class="text-right font-weight-semibold align-middle p-4">{{this.giaVnd}}</td>
+                    <td class="align-middle p-4"><a class ="tanggiamsl" href="/cart/{{this._id}}/add"><i class="fa fa-plus-square"></i></a><input type="text" id="soluong" class="form-control text-center form-sl" readonly="true" value={{this.soLuongMua}} ><a class ="tanggiamsl" href="/cart/{{this._id}}/sub"><i class="fa fa-minus-square"></i></a></td>
+                    <td class="text-right font-weight-semibold align-middle p-4" >{{this.soLuong}}</td>
+                    <td class="text-center align-middle px-0"><a href="/cart/delete/{{this._id}}" class="shop-tooltip close float-none text-danger" title="" data-original-title="Remove">X</a></td>
+                  </tr>
+                   {{/each}}
+                  {{else}}
+                      <tr>
+                        <td colspan="5" style="text-align:center;"><h4 style="color:red;">Giỏ hàng trống</h4></td>
+                      </tr>
+                  {{/if}}
+                </tbody>
+              </table>
+            </div>
+            <!-- / Shopping cart table -->
+        
+            <div class="d-flex flex-wrap justify-content-between align-items-center pb-4">
+              <div class="mt-4">
+                <label class="text-muted font-weight-normal">Mã giảm giá</label>
+                <input type="text" placeholder="ABC" class="form-control">
+              </div>
+              <div class="d-flex">
+                <div class="text-right mt-4 mr-5">
+                  <label class="text-muted font-weight-normal m-0">Vận chuyển</label>
+                  <div class="text-large"><strong>Miễn phí</strong></div>
+                </div>
+              </div>
+              <h4>{{message}}</h4>
+            </div>
+        
+            <div class="float-right">
+              {{!-- <button type="button" class="btn btn-lg btn-default md-btn-flat mt-2 mr-3">Back to shopping</button> --}}
+              <a href="/" class="btn btn-lg btn-default md-btn-flat mt-2 mr-3">Quay lại shop</a>
+              <a class="btn btn-lg btn-primary mt-2" href="/cart/checkout">Thanh toán</a>
+              {{!-- <a href="/cart/checkout" class="btn btn-lg btn-primary mt-2 ">Checkout</a> --}}
+            </div>
+        
+          </div>
+      </div>
+  </div>
+</div>
+
+
+  {{!-- <form method="POST" name="product-form">
+  </form> --}}
+
+
+
+
+{{!-- 
+  <script>
+/*     
+      var elementForm = document.forms['product-form'];
+      var elementProduct = document.getElementById('btn-checkout-product');
+      var elementSoLuong = document.getElementById('soluong');
+      console.log(elementProduct)
+      elementProduct.onclick = function(){
+        var soluong = elementSoLuong.value;
+        console.log(soluong);
+
+       
+      }
+*/ 
+  </script> --}}
+

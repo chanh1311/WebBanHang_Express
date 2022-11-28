@@ -1,0 +1,59 @@
+<div class="section">
+    <!-- container -->
+    <div class="container">
+        <!-- row -->
+        <div class="row">
+
+            <div class="col-md-7">
+                <!-- Billing Details -->
+                <div class="billing-details">
+                    <div class="section-title">
+                        <h3 class="title">Thay đổi thông tin tài khoản</h3>
+                    </div>
+                    <form method="POST" action="/users/edit">
+                        <div class="form-group">
+                            <input class="input" value="{{user.ten}}" type="text" name="ten" placeholder="Tên">
+                        </div>                  
+                        <div class="form-group">
+                            <input class="input" value="{{user.diaChi}}" type="text" name="diaChi" placeholder="Địa chỉ">
+                        </div>
+                        <div class="form-group">
+                            <input class="input" value="{{user.sdt}}" type="text" name="sdt" placeholder="Số điện thoại">
+                        </div>
+                        <div class="form-group">
+                            <input class="input" value="{{user.email}}" type="email" name="email" id="email" placeholder="Email" disabled>
+                        </div>
+                        <div class="form-group">
+                            <input class="input" value="{{user.imageUrl}}" type="text" name="imageUrl" id="imageUrl" width="1000px">
+                        </div>
+                        
+                        <p id="message">{{message}}</p><br>
+                        <div>
+                            <input id="register"  class="primary-btn order-submit" type="submit" value="Chỉnh sửa"/>
+                        </div>
+                    </form>                      							
+                </div>
+                <a href="/users/info" class="primary-btn order-submit">Quay lại</a><br><br>
+                <!-- /Billing Details -->
+        </div>
+        <!-- /row -->
+    </div>
+    <!-- /container -->
+</div>
+
+{{#extend "scripts"}}
+    <script>
+        $('#email').keyup(function() {
+            $.getJSON('/api/users/check?email='+$('#email').val(), function (data){
+              if (data) {
+                  $('#message').html('Email đã tồn tại. Vui lòng chọn email khác.');
+                  $("#register").attr("disabled", true);
+              }
+              else {
+                  $('#message').html('');
+                  $("#register").attr("disabled", false);
+              }
+            })
+        });
+    </script>
+{{/extend}}

@@ -1,0 +1,13 @@
+<div class="container">
+  <h1 style="text-align: center;color: blue;">Thông tin của tài khoản admin</h2>
+  <div class="card mx-auto" style="width:700px">
+    <img class="card-img-top" src="/images/{{user.image}}" alt="Card image" onError="this.onerror=null;this.src='{{user.image}}';" style="width:100%;">
+    <div class="card-body">
+      <h2 class="card-title"><b>Tên tài khoản: </b><strong>{{user.username}}</strong></h2>
+      <p class="card-text"><b>Họ tên: </b><strong>{{user.ten}}</strong></p>
+      <p class="card-text"><b>SĐT: </b><strong>{{user.sdt}}</strong></p>
+        <p class="card-text"><b>Địa chỉ: </b><strong>{{user.diaChi}}</strong></p>
+      <a href="/admin/edit" class="btn btn-primary stretched-link">Chỉnh sửa</a>
+    </div>
+  </div>
+</div>

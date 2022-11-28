@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Admin</title>
+
+    <!-- Custom fonts for this template-->
+  <link href="/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+
+  <!-- Page level plugin CSS-->
+  <link href="/vendor/datatables/dataTables.bootstrap4.css" rel="stylesheet">
+
+  <!-- Custom styles for this template-->
+  <link href="/css/sb-admin.css" rel="stylesheet">
+  
+</head>
+<body>
+    <div class="container">
+    <div class="card card-register mx-auto mt-5">
+        <div class="card-header" style="text-align: center;">Đăng Nhập Trang Admin</div>
+        <div class="card-body">
+            <form method="POST" action="/admin/signIn">
+                <div class="form-group">
+                    <div class="form-row">
+                        <div class="col-md-12">
+                            <div class="form-label-group">
+                                <input type="text" name="username" id="username" class="form-control" placeholder="User name" required="required" autofocus="autofocus">
+                                <label for="username">User name</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="form-row">
+                        <div class="col-md-12">
+                            <div class="form-label-group">
+                                <input type="password" name="password" id="password" class="form-control" placeholder="Password" required="required" autofocus="autofocus">
+                                <label for="password">Password</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <button type="submit" class="btn btn-primary btn-block">
+                    <i class="fa fa-plus"></i> Đăng nhập
+                </button>
+            </form>
+            <p>{{message}}</p>
+        </div>
+    </div>
+</div>
+</body>
+</html>

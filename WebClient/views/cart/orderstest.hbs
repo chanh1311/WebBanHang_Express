@@ -1,0 +1,90 @@
+﻿<!-- BREADCRUMB -->
+<div id="breadcrumb" class="section">
+    <!-- container -->
+    <div class="container">
+        <!-- row -->
+        <div class="row">
+            <div class="col-md-12">
+                <ul class="breadcrumb-tree">
+                    <li><a href="/">Trang chủ</a></li>
+                    <li><a href="#">Đơn hàng của tôi</a></li>
+                </ul>
+            </div>
+        </div>
+        <!-- /row -->
+    </div>
+    <!-- /container -->
+</div>
+<!-- /BREADCRUMB -->
+
+<!-- SECTION -->
+<div class="section">
+    <!-- container -->
+    <div class="container">
+        <!-- row -->
+        <div class="row">
+            {{#if data}}
+            {{#each data}}
+                <h3>Đơn hàng số: {{this._id}}</h3>
+                <p>Ngày đặt hàng: {{this.time}}</p>
+                <p>Người nhận: {{this.nguoiNhan}}</p>
+                <p>Email: {{this.email}}</p>
+                <p>Số điện thoại người nhận: {{this.sdtNguoiNhan}}</p>
+                <p>Địa chỉ nhận: {{this.diaChiNhan}}</p>
+                <p>Tổng tiền: {{this.tongTien}} đồng</p> 
+                <br>
+                <!-- STORE -->
+                <div id="store" class="col-md-12">
+                    <!-- store products -->
+                    <div class="row">
+                        {{#each this.listProduct}}
+                            <!-- product -->
+                            <div class="col-md-3 col-xs-6">
+                                <div class="product">
+                                    <div class="product-img">
+                                        <img src="{{this.hinhAnh}}" alt="">
+                                    </div>
+                                    <div class="product-body">
+                                        <p class="product-category">{{this.loai}}</p>
+                                        <h3 class="product-name"><a href="/product/info/{{this._id}}">{{this.ten}}</a></h3>
+                                        <h4 class="product-price">{{this.gia}} VNĐ</h4>
+                                        <h4 class="product-name">Số lượng mua: {{this.soLuongMua}}</h4>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- /product -->
+                            <div class="clearfix visible-md visible-sm visible-xs"></div>
+                        {{/each}}
+                    </div>
+                    <!-- /store products -->
+                </div>
+                <!-- /STORE -->
+                {{#if this.huy}}
+                     <h4>Trạng thái: <strong class="ThanhCong" class="TrangThai">Đơn hàng đã được hủy vì một lí do nào đó, Chúng tôi sẽ liên hệ đến bạn sớm nhất </strong></h4>
+                {{else}}
+                    {{#if this.giaoHang}}
+                        <h4>Trạng thái: <strong class="ThanhCong" class="TrangThai">Giao hàng thàng công</strong></h4>
+                    {{else}}
+                        {{#if this.trangThai}}
+                            <h4>Trạng thái: <strong class="TrangThai">Đã xác nhận (Đang chờ giao)</strong></h4>
+                        {{else}}
+                            <h4>Trạng thái: <strong>Đặt hàng thành công</strong></h4><br>
+                            <div class="add-to-cart">
+                                <a href="/cart/deleteOrders/{{this._id}}" class="primary-btn order-submit">Hủy bỏ đơn hàng</a>
+                                <a href="/cart/editAddress/{{this._id}}" class="primary-btn order-submit">Thay đổi địa chỉ nhận hàng</a>
+                            </div><br>
+                        {{/if}}
+                    {{/if}}
+                {{/if}}
+                
+                
+                
+                <hr>
+            {{/each}}
+            {{/if}}
+        </div>
+        <!-- /row -->
+    </div>
+    <!-- /container -->
+</div>
+<!-- /SECTION -->
